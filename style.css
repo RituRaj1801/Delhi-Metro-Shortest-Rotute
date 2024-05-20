@@ -1,0 +1,124 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://thumbs.dreamstime.com/z/delhi-metro-rail-mass-public-transit-india-15307660.jpg?w=992");
+  background-size: cover;
+}
+
+#tripContent-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  text-align: center;
+}
+
+#fromStation,
+#toStation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#tripContent {
+  padding: 5px;
+  border-radius: 10px;
+  width: 30vw;
+  height: 80vh;
+  background-color: #4a90e2db;
+}
+
+input {
+  margin-top: 4px;
+  outline: none;
+  /* color: #4aff02; */
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+  border-radius: 5px;
+  margin-bottom: 4px;
+}
+input::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content > div {
+  border-bottom: 2px solid black;
+  margin: 2px;
+}
+.dropdown:hover{
+    cursor: pointer;
+}
+
+p {
+  font-weight: 900;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+#theRoutToFollow {
+  overflow-y: scroll;
+  max-height: 300px;
+}
+
+#theRoute1,
+#theRoute2 {
+  border: 2px solid black;
+  margin-bottom: 2px;
+}
+
+@media screen and (max-width: 400px) {
+  #tripContent {
+    padding: 5px;
+    border-radius: 10px;
+    width: 90vw;
+    height: 90vh;
+    background-color: #4a90e2db;
+  }
+}
+
+#getRoute-rest {
+  display: flex;
+  justify-content: center;
+}
+
+#getRoute-rest > button {
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 5px;
+  outline: none;
+}
+
+@media screen and (max-width: 500px) and (min-width: 400px) {
+  #tripContent {
+    padding: 5px;
+    border-radius: 10px;
+    width: 80vw;
+    height: 90vh;
+    background-color: #4a90e2db;
+  }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>triptemplate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="tripContent-wrapper">
+    <div id="tripContent">
+      <p>Plan Your Journey</p>
+      <div form-to-Wrapper>
+        <div id="fromStation">
+          <p>From</p>
+          <div class="dropdown" id="dropdown1">
+            <div id="dropdownButton1">
+              <input type="text" placeholder="Enter the start metro" name="" id="inputBox1" value="" />
+            </div>
+            <div class="dropdown-content" id="dropdownContent1"></div>
+          </div>
+        </div>
+
+        <div id="toStation">
+          <p>To</p>
+          <div class="dropdown" id="dropdown2">
+            <div id="dropdownButton2">
+              <input type="text" placeholder="Enter the end metro" name="" id="inputBox2" value="" />
+            </div>
+            <div class="dropdown-content" id="dropdownContent2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="getRoute-rest">
+        <button id="btn">Find Route</button>
+        <button id="Reset" onclick="reset()">Reset fields</button>
+      </div>
+      <div id="theRoute">
+        <p id="yourRoute"></p>
+        <div id="theRoutToFollow"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script src="./checkifstationiscorrect.js"></script>
+<script src="./DAAProject.js"></script>
+<script src="./logicDFS.js"></script>
+
+<script>
+  function reset() {
+    document.getElementById("theRoute").innerHTML = `<p id="yourRoute"></p>
+        <div id="theRoutToFollow"></div>`;
+
+    document.getElementById("inputBox1").value = "";
+    document.getElementById("inputBox2").value = "";
+  }
+
+  const getRoutebtn = document.getElementById("btn");
+  getRoutebtn.onclick = () => {
+    console.log("clicked")
+    const start = document.getElementById("inputBox1").value;
+    const end = document.getElementById("inputBox2").value;
+    const isValid = checkValidation(start, end);
+
+    if (isValid) {
+      // window.location.href="theRoute.html";
+      const theRoute = findPaths(start, end);
+      console.log(theRoute);
+      document.getElementById("yourRoute").innerHTML = "Your Route: ";
+      if (theRoute[1] === null) {
+        document.getElementById(
+          "theRoutToFollow"
+        ).innerHTML = `<div id="theRoute1"></div>`;
+        document.getElementById("theRoute1").classList.add("toadd");
+        document.getElementById("theRoute1").innerHTML = theRoute[0];
+      } else {
+        document.getElementById(
+          "theRoutToFollow"
+        ).innerHTML = `<div id="theRoute1"></div>
+            <div id="theRoute2"></div>`;
+        document.getElementById("theRoute1").classList.add("toadd");
+        document.getElementById("theRoute2").classList.add("toadd");
+        document.getElementById("theRoute1").innerHTML = theRoute[0];
+        document.getElementById("theRoute2").innerHTML = theRoute[1];
+      }
+    }
+  };
+</script>
+
+</html>
