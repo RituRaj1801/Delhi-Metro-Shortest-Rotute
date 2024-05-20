@@ -8,7 +8,7 @@
 body {
   width: 100%;
   height: 100%;
-  background-image: url("https://thumbs.dreamstime.com/z/delhi-metro-rail-mass-public-transit-india-15307660.jpg?w=992");
+  background-image: url("https://images.hindustantimes.com/img/2022/11/08/1600x900/cff4731a-5f91-11ed-a886-4f0eae2e705f_1667931710410.jpg");
   background-size: cover;
 }
 
@@ -34,10 +34,10 @@ p {
 }
 
 #tripContent {
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
   width: 30vw;
-  height: 80vh;
+  /* height: 80vh; */
   background-color: #4a90e2db;
 }
 
@@ -61,9 +61,10 @@ input::placeholder {
   background-color: #f9f9f9;
   min-width: 160px;
   max-height: 200px;
+
   overflow-y: auto;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 2;
 }
 
 .dropdown-content > div {
@@ -106,12 +107,12 @@ p {
   justify-content: center;
 }
 
-#getRoute-rest > button {
+/* #getRoute-rest > button {
   margin-left: 15px;
   margin-right: 15px;
   border-radius: 5px;
   outline: none;
-}
+} */
 
 @media screen and (max-width: 500px) and (min-width: 400px) {
   #tripContent {
@@ -122,3 +123,40 @@ p {
     background-color: #4a90e2db;
   }
 }
+
+
+button {
+  margin-top: 10px;
+  margin-right: 15px;
+  width: 9em;
+  height: 3em;
+  border-radius: 30em;
+  font-size: 15px;
+  font-family: inherit;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 6px 6px 12px #c5c5c5,
+              -6px -6px 12px #ffffff;
+ }
+ 
+ button::before {
+  content: '';
+  width: 0;
+  height: 3em;
+  border-radius: 30em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+  transition: .5s ease;
+  display: block;
+  z-index: -1;
+ }
+ 
+ button:hover::before {
+  width: 9em;
+ }
+
+
